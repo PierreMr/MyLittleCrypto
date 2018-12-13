@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 
-export class DataService {
+export class UsersService {
 	result:any;
 
   	constructor(private _http: HttpClient) { }
@@ -26,10 +26,4 @@ export class DataService {
 		        .catch(reject)
 			})
 	}
-
-
-
 }
-
-
-/* map(result => this.result = result.json()) */
