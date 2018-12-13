@@ -1,0 +1,28 @@
+ng generate service data
+
+/* dans app.module.ts */
+
+import { DataService } from './data.service';
+import { HttpModule } from '@angular/http';
+
+
+imports: [
+	---------
+	HttpModule
+]
+
+providers: [DataService]
+
+
+/* Dans dataservice */
+
+import { Http } from '@angular/http';
+import 'rsjs/add/operator/map'
+
+	result:any
+	constuctor(private _http: Http) { } 
+
+	getPrices() {
+		return this_http.get('')
+			.map(result => this.result = result.json())
+	}
