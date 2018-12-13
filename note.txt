@@ -1,11 +1,42 @@
 ng generate service data
 
-/* dans app.module.ts */
+npm add@types/rx --dev
 
+
+/* dans app.component.ts */
 import { DataService } from './data.service';
-import { HttpModule } from '@angular/http';
+
+    objectKeys = Object.keys;
+    cryptos: any;
+
+    constuctor(private _data: DataService) { } 
+
+    ngOnInit() { 
+	this._data.getPrices() 
+    		.subscribe(res => {
+		  this.cryptos = res;
+                   console.log(res);
+	})
+    }
 
 
+/* dans app.component.html */
+
+<div *ngIf="cryptos">
+	<div id="crypto-container" *ngFor="let crypto of objectKeys(cryptos)">
+		<span class="left"> 
+			{{ crypto }}
+		</span>
+		<span class="right"> 
+			{{ crypto[crypto].EUR | currency:'EUR':true }}
+		</span>		
+	</div>	
+</div>
+
+
+/**/*/*/*/*/*/*/
+
+/* dans app.module.ts */
 imports: [
 	---------
 	HttpModule
@@ -17,12 +48,13 @@ providers: [DataService]
 /* Dans dataservice */
 
 import { Http } from '@angular/http';
-import 'rsjs/add/operator/map'
+import 'rsjs/add/operator/map';
 
 	result:any
 	constuctor(private _http: Http) { } 
 
 	getPrices() {
-		return this_http.get('')
-			.map(result => this.result = result.json())
+		return this_http.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,DASH,IOT&tsyms=USD,EUR')
+			.map(result => this.result = result.json());
 	}
+

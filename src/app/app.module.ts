@@ -7,6 +7,9 @@ import { UsersComponent } from './users/users.component';
 import { LoginComponent } from './users/login/login.component';
 import { SubscribeComponent } from './users/subscribe/subscribe.component';
 
+import { DataService } from './data.service';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,9 +19,10 @@ import { SubscribeComponent } from './users/subscribe/subscribe.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,5 +4,15 @@
     Welcome to {{ title }}!
   </h1>
 
+<div *ngIf="cryptos">
+	<div id="crypto-container" *ngFor="let crypto of objectKeys(cryptos)">
+		<span class="left"> 
+			{{ crypto }}
+		</span>
+		<span class="right"> 
+			{{ crypto[crypto].EUR | currency:'EUR':true }}
+		</span>		
+	</div>	
+</div>
   
 <router-outlet></router-outlet>
