@@ -11,6 +11,7 @@ import { UsersService } from '../users.service';
 export class SubscribeComponent implements OnInit {
   login: string;
   password: string;
+  msg = '';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -18,19 +19,20 @@ export class SubscribeComponent implements OnInit {
   }
 
   subscribe() {
-    let user = JSON.stringify({
+    let user = {
           "login": this.login,
           "password": this.password
-        })
+        }
 
     console.log(user)
 
     return new Promise((resolve, reject) => {
       this
         .httpClient
-        .get('http://localhost:3000/add-user/'+user)
+        .post('http://localhost:3000/add-user', user)
         .toPromise()
         .then(response => {
+          this.msg = response.msg
           resolve(response)
         })
         .catch(reject)

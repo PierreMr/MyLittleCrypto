@@ -4,3 +4,7 @@
 	<input [(ngModel)]="password" placeholder="password" type="password"/>
 	<button (click)="subscribe()">Subscribe</button>
 </div>
+<div *ngIf="msg != ''">
+	{{ msg }}
+	<a href="/login">Log in here</a>
+</div>
