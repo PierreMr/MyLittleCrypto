@@ -18,10 +18,17 @@ export class SubscribeComponent implements OnInit {
   }
 
   subscribe() {
+    let user = JSON.stringify({
+          "login": this.login,
+          "password": this.password
+        })
+
+    console.log(user)
+
     return new Promise((resolve, reject) => {
       this
         .httpClient
-        .get('http://localhost:3000/get-users')
+        .get('http://localhost:3000/add-user/'+user)
         .toPromise()
         .then(response => {
           resolve(response)

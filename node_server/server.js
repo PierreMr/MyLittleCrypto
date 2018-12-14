@@ -25,6 +25,7 @@ app.engine('ejs', engine)
 
 
 app.get('/get-users', routes.getUsers)
+	.post('/add-user', routes.addUser, {responseType: 'text'})
 	.use(function(req, res, next) {
 		res.send('<p>404</p>');
 	});
