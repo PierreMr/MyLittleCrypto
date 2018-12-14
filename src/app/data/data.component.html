@@ -1,0 +1,12 @@
+
+<div class="chart-day-btc" *ngFor="let item of money">
+	<div>
+		<h2> {{ item }} </h2>
+  		<canvas id="{{item}}"> {{ chart }}</canvas>
+	</div>
+</div>
+
+
+<div class="chart-day-btc" *ngFor="let allData of allDatas">
+	{{ allData | json }} 
+</div>

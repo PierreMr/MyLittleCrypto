@@ -1,32 +1,22 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to  npm install chart.js --save !
+    Welcome to  {{ title }}
   </h1>
 
-<div *ngIf="cryptos">
-	<div id="crypto-container" *ngFor="let crypto of objectKeys(cryptos)">
+
+
+<div *ngIf="cryptos" class="container mb-3" style="width: 600px;">
+	<ul id="crypto-container" class="list-inline" style="display: inline;"  *ngFor="let crypto of objectKeys(cryptos)">
+		<li class="list-inline-item">
 		<span class="left"> 
 			{{ crypto }}
 		</span>
-		<span class="right"> 
-			{{ cryptos[crypto].EUR | currency:'EUR':true }}
-		</span>		
-	</div>	
-</div>
-
-<br />
-
-
-<div class="chart-day-btc" *ngFor="let item of money">
-	<div>
-		<h2> {{ item }} </h2>
-  		<canvas id="{{item}}"> {{ chart }}</canvas>
-	</div>
-</div>
-
-<div class="chart-day-btc" *ngFor="let allData of allDatas">
-	{{ allData | json }} 
+		<span class="badge badge-info ml-1 mr-3" > 
+			<span class="mr-1 ml-1">{{ cryptos[crypto].EUR | currency:'EUR':true }} </span>
+		</span>
+		</li>		
+	</ul>	
 </div>
 
 
