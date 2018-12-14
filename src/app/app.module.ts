@@ -9,6 +9,7 @@ import { LoginComponent } from './users/login/login.component';
 import { SubscribeComponent } from './users/subscribe/subscribe.component';
 import { DataService } from './data.service';
 import { DataComponent } from './data/data.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DataComponent } from './data/data.component';
     DataComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
+    NgbModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule
