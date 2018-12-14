@@ -1,7 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
+    Welcome to  npm install chart.js --save !
   </h1>
 
 <div *ngIf="cryptos">
@@ -10,9 +10,26 @@
 			{{ crypto }}
 		</span>
 		<span class="right"> 
-			{{ crypto[crypto].EUR | currency:'EUR':true }}
+			{{ cryptos[crypto].EUR | currency:'EUR':true }}
 		</span>		
 	</div>	
 </div>
+
+<br />
+
+
+<div class="chart-day-btc" *ngFor="let item of money">
+	<div>
+		<h2> {{ item }} </h2>
+  		<canvas id="{{item}}"> {{ chart }}</canvas>
+	</div>
+</div>
+
+<div class="chart-day-btc" *ngFor="let allData of allDatas">
+	{{ allData | json }} 
+</div>
+
+
   
 <router-outlet></router-outlet>
+ 

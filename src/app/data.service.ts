@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-
 
 
 @Injectable({
@@ -10,25 +8,37 @@ import { map } from 'rxjs/operators';
 
 export class DataService {
 	result:any;
+	money:string;
+	limit:number;
 
   	constructor(private _http: HttpClient) { }
 
-	getPrices() {
+	getPricesToday() {
 		 return new Promise((resolve, reject) => {
 	      this
 	        ._http
-	        .get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,DASH,IOT&tsyms=USD,EUR"')
+	        .get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,DASH,IOT&tsyms=EUR')
 		        .toPromise()
 		        .then(response => {
-		          console.log(response)
+		        
 		          resolve(response)
 		        })
 		        .catch(reject)
 			})
 	}
 
-
-
+	getDayChart(money, limit) {
+		 return new Promise((resolve, reject) => {
+	      this
+	        ._http
+	        .get(`https://min-api.cryptocompare.com/data/histoday?fsym=${money}&tsym=USD&limit=${limit}`)
+		        .toPromise()
+		        .then(response => {	
+		          resolve(response.Data)
+		        })
+		        .catch(reject)
+			})
+	}
 }
 
 
