@@ -1,1 +1,1 @@
-{"users":[{"id":2,"username":"Pierre2"},{"id":"Test","username":"Test"},{"id":"Test","username":"Test"}]}
+{"users":[{"login":"Test","password":"YOLO"},{"login":"Test","password":"Test"},{"login":"Pierre","password":"Pierre"},{"login":"Julien","password":"Julien"},{"login":"Thomas","password":"Thomas"},{"login":"Jean","password":"Jean"},{"login":"Simon","password":"Simon"},{"login":"Jean-Pierre","password":"jp"},{"login":"Jean-Patrick","password":"jp"},{"login":"Jean-Paul","password":"jp"}]}

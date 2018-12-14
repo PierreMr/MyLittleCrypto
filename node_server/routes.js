@@ -8,11 +8,11 @@ module.exports = {
 	addUser : function (req, res) {
 		console.log(req.body);
 		
-		// let users = db.get('users');
-		// users.push({'id': 'Test', 'username': 'Test'});
-		// db.set('users', users);
+		let users = db.get('users');
+		users.push(req.body);
+		db.set('users', users);
 
 		console.log(db.get('users'));
-		res.send(JSON.stringify(db.get('users')));
+		res.send({ msg: 'User registered!' });
 	}
 }
