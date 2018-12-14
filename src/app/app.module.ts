@@ -11,6 +11,9 @@ import { DataService } from './data.service';
 import { DataComponent } from './data/data.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
+import { CryptoService } from './crypto.service'
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
   ],
   imports: [
     BrowserModule, 
+    BrowserModule.withServerTransition({appId: 'my-wallet-app'}), 
     NgbModule,
     AppRoutingModule,
     FormsModule,

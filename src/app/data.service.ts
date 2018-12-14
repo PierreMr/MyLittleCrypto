@@ -35,7 +35,6 @@ export class DataService {
 		        .toPromise()
 		        .then(response => {	
 		          resolve(response.Data)
-		          console.log(response.Data)
 		        })
 		        .catch(reject)
 			})
