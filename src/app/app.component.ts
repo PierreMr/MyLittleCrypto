@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
   /* Get day value for each money */
   getDayStats(item) {
 		return new Promise((resolve, reject) => {
-			this._data.getDayChart(item, this.limit)
+			this._data.getDayStatApi(item, this.limit)
 		    .then(response => {
 
 		      this.allDatas.push(response)

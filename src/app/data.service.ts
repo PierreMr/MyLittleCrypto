@@ -27,7 +27,7 @@ export class DataService {
 			})
 	}
 
-	getDayChart(money, limit) {
+	getDayStatApi(money, limit) {
 		 return new Promise((resolve, reject) => {
 	      this
 	        ._http
