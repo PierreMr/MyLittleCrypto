@@ -24,6 +24,7 @@ app.use(bodyParser.json());
 
 app.get('/get-users', routes.getUsers)
 	.post('/add-user', routes.addUser)
+	.post('/login', routes.login)
 	.use(function(req, res, next) {
 		res.send('<p>404</p>');
 	});
