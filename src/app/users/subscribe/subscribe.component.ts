@@ -32,7 +32,6 @@ export class SubscribeComponent implements OnInit {
         .post('http://localhost:3000/add-user', user)
         .toPromise()
         .then(response => {
-          this.msg = response.msg
           resolve(response)
         })
         .catch(reject)
