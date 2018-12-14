@@ -9,6 +9,10 @@ import { LoginComponent } from './users/login/login.component';
 import { SubscribeComponent } from './users/subscribe/subscribe.component';
 import { DataService } from './data.service';
 import { DataComponent } from './data/data.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+
+import { CryptoService } from './crypto.service'
+
 
 @NgModule({
   declarations: [
@@ -18,7 +22,9 @@ import { DataComponent } from './data/data.component';
     DataComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
+    BrowserModule.withServerTransition({appId: 'my-wallet-app'}), 
+    NgbModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule

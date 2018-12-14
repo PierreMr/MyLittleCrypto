@@ -17,82 +17,92 @@ export class DataComponent implements OnInit {
   allDatas = [];
   private limit = 10; /* + 1 element */
   cryptos: any;
+  chart: any;
   
   constructor(private _data: DataService) { } 
 
   ngOnInit() { 
 
-		
-		// /* On boucle pour n'utiliser qu'un fonction */
-		// for (let item in this.money) {
-		// 	this.getDayStats(this.money[item])
-		// }
-  }
+		/* On boucle pour n'utiliser qu'un fonction */
+		for (let item in this.money) {
+			this.getDayStats(this.money[item])
+		}
+    }
 
-  // /* Get current main money values */
-  // getCurrentPrices() {
-  // 	return new Promise((resolve, reject) => {
-  // 		this._data.getPricesToday()
-  //         .then(response => {
-  //           this.cryptos = response	
-  //           resolve(this.cryptos)
-  //         })
-  //         .catch(reject)
-  // 	})
-  // }
+  /* Get current main money values  */
 
-  // /* Get day value for each money */
-  // getDayStats(item) {
-		// return new Promise((resolve, reject) => {
-		// 	this._data.getDayChart(item, this.limit)
-		//     .then(response => {
-
-		//       this.allDatas.push(response)
-		      
-		//       let times = response.map(response => response.time)
-		//       let closes = response.map(response => response.close)	      
-		//       let opens = response.map(response => response.open)	      
-		      
-		//       this.getCharts(times, closes, opens, item)
-		//       resolve(this.allDatas)
-		//     })
-		//     .catch(reject)
-		// })
-  // }
-
-  // getCharts(times, closes, opens, item) {
   
-  // 		this.chart = new Chart(`${item}`, {
-  //         type: 'line',
-  //         data: {
-  //           labels: times,
-  //           datasets: [
-  //             { 
-  //               data: closes,
-  //               borderColor: "#3cba9f",
-  //               fill: true
-  //             },
-  //             { 
-  //               data: opens,
-  //               borderColor: "#ffcc00",
-  //               fill: false
-  //             },
-  //           ]
-  //         },
-  //         options: {
-  //           legend: {
-  //             display: false
-  //           },
-  //           scales: {
-  //             xAxes: [{
-  //               display: true
-  //             }],
-  //             yAxes: [{
-  //               display: true
-  //             }],
-  //           }
-  //         }
-  //       });
-  // }
+  getCurrentPrices() {
+	return new Promise((resolve, reject) => {
+		this._data.getPricesToday()
+        .then(response => {
+          this.cryptos = response	
+          resolve(this.cryptos)
+        })
+        .catch(reject)
+	})
+  }
+ 
+  getDayStats(item) {
+		return new Promise((resolve, reject) => {
+			this._data.getDayChart(item, this.limit)
+		    .then(response => {
 
+		      this.allDatas.push(response)
+
+		      let times = []; let opens = []; let closes= [];
+		      let i = 0;
+		      /*
+		      let times = response.map(response => response.time)
+		      let closes = response.map(response => response.close)	      
+		      let opens = response.map(response => response.open)	      
+		      */
+		 	  while(i < this.limit) {
+		      	//console.log('ICI::Boucle')
+		      	times.push(Object.values(response)[i].time)
+		      	opens.push(Object.values(response)[i].open)
+		      	closes.push(Object.values(response)[i].close)
+		      	i++
+		      }
+		  
+
+		      this.getCharts(times, closes, opens, item)
+		      resolve(this.allDatas)
+		    })
+		    .catch(reject)
+		})
+  }
+  getCharts(times, closes, opens, item) {
+  		this.chart = new Chart(`${item}`, {
+          type: 'line',
+          data: {
+            labels: times,
+            datasets: [
+              { 
+                data: closes,
+                borderColor: "#3cba9f",
+                fill: true
+              },
+              { 
+                data: opens,
+                borderColor: "#ffcc00",
+                fill: false
+              },
+            ]
+          },
+          options: {
+            legend: {
+              display: false
+            },
+            scales: {
+              xAxes: [{
+                display: true
+              }],
+              yAxes: [{
+                display: true
+              }],
+            }
+          }
+        });
+  }
 }
