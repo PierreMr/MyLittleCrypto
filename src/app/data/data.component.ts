@@ -105,7 +105,4 @@ export class DataComponent implements OnInit {
           }
         });
   }
- 
-  
-
 }

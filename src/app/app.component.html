@@ -3,10 +3,10 @@
   <h1>
     Welcome to  {{ title }}
   </h1>
-  <ngb-rating [(rate)]="currentRate"></ngb-rating>
-<hr>
-
-<pre>Rate: <b>{{currentRate}}</b></pre>
+  
+  <div *ngIf="user != null">
+  	<p>Hello {{ user.login }} ! You have {{ user.wallet.money }} € at the moment ;)</p>
+  </div>
 
 
 <div *ngIf="cryptos" class="container mb-3" style="width: 600px;">
@@ -19,7 +19,7 @@
 			<span class="mr-1 ml-1">{{ cryptos[crypto].EUR | currency:'EUR':true }} </span>
 		</span>
 		</li>		
-	</ul>	
+	</ul>
 </div>
 
   
