@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './users/login/login.component';
 import { SubscribeComponent } from './users/subscribe/subscribe.component';
 import { DataService } from './data.service';
+import { DataComponent } from './data/data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SubscribeComponent,
+    DataComponent,
   ],
   imports: [
     BrowserModule,
