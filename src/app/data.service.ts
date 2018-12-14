@@ -31,7 +31,7 @@ export class DataService {
 		 return new Promise((resolve, reject) => {
 	      this
 	        ._http
-	        .get(`https://min-api.cryptocompare.com/data/histoday?fsym=${money}&tsym=USD&limit=${limit}`)
+	        .get<any>(`https://min-api.cryptocompare.com/data/histoday?fsym=${money}&tsym=USD&limit=${limit}`)
 		        .toPromise()
 		        .then(response => {	
 		          resolve(response.Data)

@@ -4,6 +4,10 @@
     Welcome to  {{ title }}
   </h1>
 
+  <div *ngIf="user != null">
+  	<p>Hello {{ user.login }} ! You have {{ user.wallet.money }} € at the moment ;)</p>
+  </div>
+
 
 
 <div *ngIf="cryptos" class="container mb-3" style="width: 600px;">

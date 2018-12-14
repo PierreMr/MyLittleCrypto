@@ -12,11 +12,14 @@ export class AppComponent implements OnInit {
   title = "My Little Crypto"
   objectKeys = Object.keys;  
   cryptos: any;
+  user: any;
 
   constructor(private _data: DataService) { }
 
   ngOnInit() {
   	this.getCurrentPrices()
+  	this.user = JSON.parse(localStorage.getItem('user'));
+  	console.log(this.user);
   }
 
     /* Get current main money values */
