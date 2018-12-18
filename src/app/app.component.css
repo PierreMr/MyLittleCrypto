@@ -1,0 +1,16 @@
+#main-nav {
+	background: #f8f8f8;
+	margin-bottom: 2rem;
+	border-bottom: 1px solid #a8a8a8;
+}
+
+.nav-link {
+	color: #17a2b8;
+}
+.nav-link:hover {
+	color: #50b8b8;
+}
+.nav-link.active {
+	color: #50b8b8;
+	border-top: 4px solid #17a2b8;
+}
