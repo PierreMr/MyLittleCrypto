@@ -3,15 +3,22 @@
 	<div class="row">
 		<div class="col-9">
 			<ul class="nav">
-				<li class="nav-item"><a href="/" class="nav-link active">Accueil</a></li>
-				<li class="nav-item"><a href="/data" class="nav-link">Data</a></li>
+				<li class="nav-item"><a class="nav-link" routerLink="/" routerLinkActive="active">Accueil</a></li>
+				<li class="nav-item"><a class="nav-link" routerLink="/data" routerLinkActive="active">Data</a></li>
 			</ul>
 		</div>
 		<div class="col-3">
-			<ul class="nav float-right">
-				<li class="nav-item"><a href="/subscribe" class="nav-link">Subscribe</a></li>
-				<li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
-			</ul>
+			<div *ngIf="user == null">
+				<ul class="nav float-right">
+					<li class="nav-item"><a class="nav-link" routerLink="/subscribe" routerLinkActive="active">Subscribe</a></li>
+					<li class="nav-item"><a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a></li>
+				</ul>
+			</div>
+			<div *ngIf="user != null">
+				<ul class="nav float-right">
+					<li class="nav-item"><a class="nav-link" routerLink="/logout" routerLinkActive="active">Logout</a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </nav>
@@ -26,7 +33,7 @@
   </div>
 
 
-<div *ngIf="cryptos" class="container mb-3" style="width: 600px;">
+<div *ngIf="cryptos" class="container mb-5" style="width: 600px;">
 	<ul id="crypto-container" class="list-inline" style="display: inline;"  *ngFor="let crypto of objectKeys(cryptos)">
 		<li class="list-inline-item">
 		<span class="left"> 
