@@ -23,24 +23,24 @@ export class DataComponent implements OnInit {
 
   ngOnInit() { 
 
-		/* On boucle pour n'utiliser qu'un fonction */
-		for (let item in this.money) {
-			this.getDayStats(this.money[item])
-		}
+  		/* On boucle pour n'utiliser qu'un fonction */
+  		for (let item in this.money) {
+  			this.getDayStats(this.money[item])
+  		}
     }
 
   /* Get current main money values  */
 
   
   getCurrentPrices() {
-	return new Promise((resolve, reject) => {
-		this._data.getPricesToday()
-        .then(response => {
-          this.cryptos = response	
-          resolve(this.cryptos)
-        })
-        .catch(reject)
-	})
+  	return new Promise((resolve, reject) => {
+  		this._data.getPricesToday()
+          .then(response => {
+            this.cryptos = response	
+            resolve(this.cryptos)
+          })
+          .catch(reject)
+  	})
   }
  
   getDayStats(item) {

@@ -46,5 +46,10 @@
 	</ul>
 </div>
 
+<div *ngIf="chucksdata">
+	<img src="{{ chucksdata.icon_url }}">
+	<p>{{ chucksdata.value }}</p>
+</div>
+
   
 <router-outlet></router-outlet>
