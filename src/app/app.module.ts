@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './users/login/login.component';
 import { SubscribeComponent } from './users/subscribe/subscribe.component';
+import { LogoutComponent } from './users/logout/logout.component';
 import { DataService } from './data.service';
 import { DataComponent } from './data/data.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
@@ -19,6 +20,7 @@ import { CryptoService } from './crypto.service'
     AppComponent,
     LoginComponent,
     SubscribeComponent,
+    LogoutComponent,
     DataComponent,
   ],
   imports: [
